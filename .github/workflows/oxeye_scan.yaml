@@ -8,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - run: echo "$GITHUB_API_URL"
+      - run: printenv
+      
       - name: Run Oxeye Scan
         uses: ox-eye/github-actions/oxeye-scan@main
         with:
@@ -16,5 +19,5 @@ jobs:
           secret: ${{ secrets.OXEYE_CICD_SECRET }}
           workspace-id: '1f324138-5ec3-4998-8ff8-b44b23176534'
           release: main
-          host: ‘api.staging-oxeye.net’
+          host: api.staging-oxeye.net
 
